@@ -1,7 +1,7 @@
 # NanoBanana CLI
 
-[![PyPI version](https://img.shields.io/pypi/v/nano-banana-cli.svg)](https://pypi.org/project/nano-banana-cli/)
-[![PyPI downloads](https://img.shields.io/pypi/dm/nano-banana-cli.svg)](https://pypi.org/project/nano-banana-cli/)
+[![PyPI version](https://img.shields.io/pypi/v/nano-banana-pro-cli.svg)](https://pypi.org/project/nano-banana-pro-cli/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/nano-banana-pro-cli.svg)](https://pypi.org/project/nano-banana-pro-cli/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/AceDataCloud/NanoBananaCli/actions/workflows/ci.yaml/badge.svg)](https://github.com/AceDataCloud/NanoBananaCli/actions/workflows/ci.yaml)
@@ -34,10 +34,10 @@ Get your API token from [AceDataCloud Platform](https://platform.acedata.cloud/)
 
 ```bash
 # Install with pip
-pip install nano-banana-cli
+pip install nano-banana-pro-cli
 
 # Or with uv (recommended)
-uv pip install nano-banana-cli
+uv pip install nano-banana-pro-cli
 
 # Or from source
 git clone https://github.com/AceDataCloud/NanoBananaCli.git
@@ -60,25 +60,25 @@ cp .env.example .env
 
 ```bash
 # Generate an image from a prompt
-nano-banana generate "A cat sitting on a windowsill at sunset, warm lighting"
+nano-banana-pro generate "A cat sitting on a windowsill at sunset, warm lighting"
 
 # Generate with specific model and aspect ratio
-nano-banana generate "Product photo of a watch" -m nano-banana-pro -a 16:9 -r 4K
+nano-banana-pro generate "Product photo of a watch" -m nano-banana-pro -a 16:9 -r 4K
 
 # Edit an image
-nano-banana edit "Make it look like an oil painting" -i https://example.com/photo.jpg
+nano-banana-pro edit "Make it look like an oil painting" -i https://example.com/photo.jpg
 
 # Virtual try-on (combine person + clothing)
-nano-banana edit "Let this person wear this T-shirt" -i person.jpg -i shirt.jpg
+nano-banana-pro edit "Let this person wear this T-shirt" -i person.jpg -i shirt.jpg
 
 # Check task status
-nano-banana task <task-id>
+nano-banana-pro task <task-id>
 
 # Wait for completion with polling
-nano-banana wait <task-id> --interval 5
+nano-banana-pro wait <task-id> --interval 5
 
 # List available models
-nano-banana models
+nano-banana-pro models
 ```
 
 ## Commands
@@ -87,25 +87,25 @@ nano-banana models
 
 | Command | Description |
 |---------|-------------|
-| `nano-banana generate <prompt>` | Generate an image from a text prompt |
-| `nano-banana edit <prompt> -i <url>...` | Edit or combine images using AI |
+| `nano-banana-pro generate <prompt>` | Generate an image from a text prompt |
+| `nano-banana-pro edit <prompt> -i <url>...` | Edit or combine images using AI |
 
 ### Task Management
 
 | Command | Description |
 |---------|-------------|
-| `nano-banana task <task_id>` | Query a single task status |
-| `nano-banana tasks <id1> <id2>...` | Query multiple tasks at once |
-| `nano-banana wait <task_id>` | Wait for task completion with polling |
+| `nano-banana-pro task <task_id>` | Query a single task status |
+| `nano-banana-pro tasks <id1> <id2>...` | Query multiple tasks at once |
+| `nano-banana-pro wait <task_id>` | Wait for task completion with polling |
 
 ### Utilities
 
 | Command | Description |
 |---------|-------------|
-| `nano-banana models` | List available NanoBanana models |
-| `nano-banana aspect-ratios` | List available aspect ratios |
-| `nano-banana resolutions` | List available output resolutions |
-| `nano-banana config` | Show current configuration |
+| `nano-banana-pro models` | List available NanoBanana models |
+| `nano-banana-pro aspect-ratios` | List available aspect ratios |
+| `nano-banana-pro resolutions` | List available output resolutions |
+| `nano-banana-pro config` | Show current configuration |
 
 ## Global Options
 
@@ -128,14 +128,14 @@ The `--json` flag outputs machine-readable JSON suitable for piping:
 
 ```bash
 # Generate and extract task ID
-TASK_ID=$(nano-banana generate "a red circle" --json | jq -r '.task_id')
+TASK_ID=$(nano-banana-pro generate "a red circle" --json | jq -r '.task_id')
 
 # Wait for completion and get image URL
-nano-banana wait $TASK_ID --json | jq -r '.data[0].image_url'
+nano-banana-pro wait $TASK_ID --json | jq -r '.data[0].image_url'
 
 # Batch generate from a file of prompts
 while IFS= read -r prompt; do
-  nano-banana generate "$prompt" --json >> results.jsonl
+  nano-banana-pro generate "$prompt" --json >> results.jsonl
 done < prompts.txt
 ```
 
@@ -227,14 +227,14 @@ twine upload dist/*
 
 ```bash
 # Pull the image
-docker pull ghcr.io/acedatacloud/nano-banana-cli:latest
+docker pull ghcr.io/acedatacloud/nano-banana-pro-cli:latest
 
 # Run a command
 docker run --rm -e ACEDATACLOUD_API_TOKEN=your_token \
-  ghcr.io/acedatacloud/nano-banana-cli generate "A beautiful sunset"
+  ghcr.io/acedatacloud/nano-banana-pro-cli generate "A beautiful sunset"
 
 # Or use docker-compose
-docker compose run --rm nano-banana-cli generate "A beautiful sunset"
+docker compose run --rm nano-banana-pro-cli generate "A beautiful sunset"
 ```
 
 ## Project Structure
@@ -271,7 +271,7 @@ NanoBananaCli/
 | Usage | Direct shell, scripts, CI/CD | Claude, VS Code, MCP clients |
 | Output | Rich tables / JSON | Structured MCP responses |
 | Automation | Shell scripts, piping | AI agent workflows |
-| Install | `pip install nano-banana-cli` | `pip install mcp-nanobanana-pro` |
+| Install | `pip install nano-banana-pro-cli` | `pip install mcp-nanobanana-pro` |
 
 Both tools use the same AceDataCloud API and share the same API token.
 

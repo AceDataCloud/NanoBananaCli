@@ -1,7 +1,7 @@
 version: "3"
 services:
-  nano-banana-cli:
+  nano-banana-pro-cli:
     platform: linux/amd64
-    container_name: "nano-banana-cli"
+    container_name: "nano-banana-pro-cli"
     build: ./
-    image: "ghcr.io/acedatacloud/nano-banana-cli:${BUILD_NUMBER}"
+    image: "ghcr.io/acedatacloud/nano-banana-pro-cli:${BUILD_NUMBER}"
