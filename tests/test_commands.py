@@ -73,9 +73,7 @@ class TestImageCommands:
         respx.post("https://api.acedata.cloud/nano-banana/images").mock(
             return_value=Response(200, json=mock_image_response)
         )
-        result = runner.invoke(
-            cli, ["--token", "test-token", "generate", "A beautiful sunset"]
-        )
+        result = runner.invoke(cli, ["--token", "test-token", "generate", "A beautiful sunset"])
         assert result.exit_code == 0
         assert "test-task-123" in result.output
 
@@ -239,9 +237,7 @@ class TestTaskCommands:
         respx.post("https://api.acedata.cloud/nano-banana/tasks").mock(
             return_value=Response(200, json=mock_task_response)
         )
-        result = runner.invoke(
-            cli, ["--token", "test-token", "task", "task-123", "--json"]
-        )
+        result = runner.invoke(cli, ["--token", "test-token", "task", "task-123", "--json"])
         assert result.exit_code == 0
         data = json.loads(result.output)
         assert data["data"][0]["id"] == "task-123"
@@ -259,9 +255,7 @@ class TestTaskCommands:
         respx.post("https://api.acedata.cloud/nano-banana/tasks").mock(
             return_value=Response(200, json=mock_task_response)
         )
-        result = runner.invoke(
-            cli, ["--token", "test-token", "tasks", "t-1", "t-2", "--json"]
-        )
+        result = runner.invoke(cli, ["--token", "test-token", "tasks", "t-1", "t-2", "--json"])
         assert result.exit_code == 0
 
 

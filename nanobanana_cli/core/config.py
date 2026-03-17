@@ -17,9 +17,7 @@ class Settings:
             "ACEDATACLOUD_API_BASE_URL", "https://api.acedata.cloud"
         )
     )
-    api_token: str = field(
-        default_factory=lambda: os.environ.get("ACEDATACLOUD_API_TOKEN", "")
-    )
+    api_token: str = field(default_factory=lambda: os.environ.get("ACEDATACLOUD_API_TOKEN", ""))
     request_timeout: float = field(
         default_factory=lambda: float(os.environ.get("NANOBANANA_REQUEST_TIMEOUT", "1800"))
     )
