@@ -45,7 +45,7 @@ def test_settings_validate_missing_token():
     settings.api_token = ""
     try:
         settings.validate()
-        assert False, "Should have raised ValueError"
+        raise AssertionError("Should have raised ValueError")
     except ValueError as e:
         assert "API token not configured" in str(e)
 

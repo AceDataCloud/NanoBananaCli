@@ -92,6 +92,8 @@ jobs:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     environment:
       name: pypi
       url: https://pypi.org/project/nanobanana-cli/${{ needs.build.outputs.version }}
@@ -103,12 +105,7 @@ jobs:
           path: dist/
 
       - name: Publish to PyPI
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          pip install "twine>=6.1.0"
-          twine upload dist/*
+        uses: pypa/gh-action-pypi-publish@release/v1
 
   create-release:
     name: Create GitHub Release
