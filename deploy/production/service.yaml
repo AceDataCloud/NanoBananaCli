@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nanobanana-cli
+  name: nanobanana-cli
+  namespace: acedatacloud
+spec:
+  selector:
+    app: nanobanana-cli

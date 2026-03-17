@@ -1,0 +1,7 @@
+version: "3"
+services:
+  nanobanana-cli:
+    platform: linux/amd64
+    container_name: "nanobanana-cli"
+    build: ./
+    image: "ghcr.io/acedatacloud/nanobanana-cli:${BUILD_NUMBER}"
