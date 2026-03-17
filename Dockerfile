@@ -7,4 +7,4 @@ COPY nanobanana_cli/ nanobanana_cli/
 
 RUN pip install --no-cache-dir .
 
-ENTRYPOINT ["nanobanana-cli"]
+ENTRYPOINT ["nano-banana-cli"]

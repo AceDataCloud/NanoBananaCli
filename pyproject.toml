@@ -1,5 +1,5 @@
 [project]
-name = "nanobanana-cli"
+name = "nano-banana-cli"
 version = "0.1.0"
 description = "CLI tool for NanoBanana AI Image Generation via AceDataCloud API"
 readme = "README.md"
@@ -60,12 +60,12 @@ release = [
     "twine>=6.1.0",
 ]
 all = [
-    "nanobanana-cli[dev,test,release]",
+    "nano-banana-cli[dev,test,release]",
 ]
 
 [project.scripts]
-nanobanana-cli = "nanobanana_cli.main:cli"
-nanobanana = "nanobanana_cli.main:cli"
+nano-banana-cli = "nanobanana_cli.main:cli"
+nano-banana = "nanobanana_cli.main:cli"
 
 [project.urls]
 Homepage = "https://github.com/AceDataCloud/NanoBananaCli"

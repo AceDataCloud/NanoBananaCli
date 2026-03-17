@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nanobanana-cli
-  name: nanobanana-cli
+    app: nano-banana-cli
+  name: nano-banana-cli
   namespace: acedatacloud
 spec:
   replicas: 1
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: nanobanana-cli
+      app: nano-banana-cli
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,11 +19,11 @@ spec:
   template:
     metadata:
       labels:
-        app: nanobanana-cli
+        app: nano-banana-cli
     spec:
       containers:
-        - name: nanobanana-cli
-          image: ghcr.io/acedatacloud/nanobanana-cli:${TAG}
+        - name: nano-banana-cli
+          image: ghcr.io/acedatacloud/nano-banana-cli:${TAG}
           imagePullPolicy: IfNotPresent
           resources:
             limits:

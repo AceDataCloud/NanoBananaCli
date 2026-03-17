@@ -21,13 +21,13 @@ load_dotenv()
 def get_version() -> str:
     """Get the package version."""
     try:
-        return metadata.version("nanobanana-cli")
+        return metadata.version("nano-banana-cli")
     except metadata.PackageNotFoundError:
         return "dev"
 
 
 @click.group()
-@click.version_option(version=get_version(), prog_name="nanobanana-cli")
+@click.version_option(version=get_version(), prog_name="nano-banana-cli")
 @click.option(
     "--token",
     envvar="ACEDATACLOUD_API_TOKEN",
@@ -43,10 +43,10 @@ def cli(ctx: click.Context, token: str | None) -> None:
 
     \b
     Examples:
-      nanobanana generate "A cat sitting on a windowsill at sunset"
-      nanobanana edit "Make it look like a painting" -i image.jpg
-      nanobanana task abc123-def456
-      nanobanana wait abc123 --interval 5
+      nano-banana generate "A cat sitting on a windowsill at sunset"
+      nano-banana edit "Make it look like a painting" -i image.jpg
+      nano-banana task abc123-def456
+      nano-banana wait abc123 --interval 5
 
     Set your token:
       export ACEDATACLOUD_API_TOKEN=your_token
