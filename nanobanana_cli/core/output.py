@@ -132,8 +132,8 @@ def print_models() -> None:
     )
     table.add_row(
         "nano-banana-2",
-        "Improved generation",
-        "Better quality, balanced speed",
+        "Improved generation (Gemini 3.1 Flash)",
+        "Pro-level quality at flash speed",
     )
     table.add_row(
         "nano-banana-pro",

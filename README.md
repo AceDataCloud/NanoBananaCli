@@ -14,7 +14,7 @@ Generate and edit AI images directly from your terminal — no MCP client requir
 
 - **Image Generation** — Generate images from text prompts with multiple models
 - **Image Editing** — Edit, combine, and transform images with AI
-- **Multiple Models** — nano-banana (fast), nano-banana-2 (improved), nano-banana-pro (best, 4K)
+- **Multiple Models** — nano-banana (fast), nano-banana-2 (Gemini 3.1 Flash, pro-level quality), nano-banana-pro (best, 4K)
 - **Flexible Output** — Aspect ratios (1:1, 16:9, 9:16, etc.) and resolutions (1K/2K/4K)
 - **Task Management** — Query tasks, batch query, wait with polling
 - **Rich Output** — Beautiful terminal tables and panels via Rich
@@ -144,7 +144,7 @@ done < prompts.txt
 | Model | Engine | Notes |
 |-------|--------|-------|
 | `nano-banana` | Gemini 2.5 Flash | Fast, good quality (default) |
-| `nano-banana-2` | Improved | Better quality, balanced speed |
+| `nano-banana-2` | Improved generation (Gemini 3.1 Flash) | Pro-level quality at flash speed |
 | `nano-banana-pro` | Gemini 3 Pro | Best quality, supports resolution control (1K/2K/4K) |
 
 ## Aspect Ratios
